@@ -1,0 +1,24 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding-bottom: 1rem;
+}
+
+.scrollAnchor {
+  height: 1px;
+  width: 100%;
+}
+
+/* Screen reader only class for announcements */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

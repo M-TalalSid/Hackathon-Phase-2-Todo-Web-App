@@ -1,0 +1,756 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   PREMIUM DESIGN TOKENS - ULTRA REFINED
+   ============================================ */
+
+:root {
+  /* Color Palette - Luxurious & Refined (Based on design inspiration) */
+  --background: #fafbfc; /* Preserved from user's custom palette */
+  --foreground: #0f172a; /* Preserved from user's custom palette */
+  --foreground-muted: #475569; /* Preserved from user's custom palette */
+  --primary: #6366f1; /* Preserved from user's custom palette */
+  --primary-hover: #4f46e5; /* Preserved from user's custom palette */
+  --primary-light: #e0e7ff; /* Preserved from user's custom palette */
+  --primary-lighter: #eef2ff; /* Preserved from user's custom palette */
+  --secondary: #64748b; /* Preserved from user's custom palette */
+  --accent: #8b5cf6; /* Preserved from user's custom palette */
+  --accent-light: #f3e8ff; /* Preserved from user's custom palette */
+  --success: #10b981; /* Preserved from user's custom palette */
+  --success-light: #d1fae5; /* Preserved from user's custom palette */
+  --warning: #f59e0b; /* Preserved from user's custom palette */
+  --warning-light: #fef3c7; /* Preserved from user's custom palette */
+  --danger: #ef4444; /* Preserved from user's custom palette */
+  --danger-light: #fee2e2; /* Preserved from user's custom palette */
+
+  /* Shadcn/UI Default Colors (Preserved if not conflicting, and overriding with user's specific oklch values) */
+  --card: oklch(1 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --card-foreground: oklch(0.145 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --popover: oklch(1 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --popover-foreground: oklch(0.145 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --primary-foreground: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --secondary-foreground: oklch(0.205 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --muted: oklch(0.97 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --muted-foreground: oklch(0.556 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --accent-foreground: oklch(0.205 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --destructive: oklch(0.577 0.245 27.325); /* Preserved from user's existing Shadcn/UI values */
+  --destructive-foreground: oklch(0.577 0.245 27.325); /* Preserved from user's existing Shadcn/UI values */
+  --input: oklch(0.922 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --ring: oklch(0.708 0 0); /* Preserved from user's existing Shadcn/UI values */
+
+  /* Shadcn/UI Chart Colors */
+  --chart-1: oklch(0.646 0.222 41.116); /* Preserved from user's existing Shadcn/UI values */
+  --chart-2: oklch(0.6 0.118 184.704); /* Preserved from user's existing Shadcn/UI values */
+  --chart-3: oklch(0.398 0.07 227.392); /* Preserved from user's existing Shadcn/UI values */
+  --chart-4: oklch(0.828 0.189 84.429); /* Preserved from user's existing Shadcn/UI values */
+  --chart-5: oklch(0.769 0.188 70.08); /* Preserved from user's existing Shadcn/UI values */
+
+  /* Shadcn/UI Radius */
+  --radius: 0.625rem; /* Preserved from user's existing Shadcn/UI values */
+
+  /* Shadcn/UI Sidebar Colors */
+  --sidebar: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --sidebar-foreground: oklch(0.145 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --sidebar-primary: oklch(0.205 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --sidebar-primary-foreground: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --sidebar-accent: oklch(0.97 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --sidebar-accent-foreground: oklch(0.205 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --sidebar-border: oklch(0.922 0 0); /* Preserved from user's existing Shadcn/UI values */
+  --sidebar-ring: oklch(0.708 0 0); /* Preserved from user's existing Shadcn/UI values */
+
+  /* Surface Colors - Preserved from user's custom palette */
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-muted: #f8fafc;
+  --surface-hover: #f1f5f9;
+  --border: #e2e8f0; /* Preserved from user's custom palette */
+  --border-light: #f1f5f9;
+  --border-dark: #cbd5e1;
+
+  /* Shadows - Luxurious & Layered */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+  --shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 40px -10px rgba(99, 102, 241, 0.3);
+  --shadow-focus: 0 0 0 3px rgba(99, 102, 241, 0.12);
+
+  /* Timing - Smooth & Premium */
+  --transition-fast: 150ms;
+  --transition-base: 200ms;
+  --transition-slow: 300ms;
+  --transition-slower: 400ms;
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.dark {
+  --background: oklch(0.145 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --foreground: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --card: oklch(0.145 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --card-foreground: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --popover: oklch(0.145 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --popover-foreground: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --primary: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --primary-foreground: oklch(0.205 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --secondary: oklch(0.269 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --secondary-foreground: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --muted: oklch(0.269 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --muted-foreground: oklch(0.708 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --accent: oklch(0.269 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --accent-foreground: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --destructive: oklch(0.396 0.141 25.723); /* Preserved from user's existing Shadcn/UI dark values */
+  --destructive-foreground: oklch(0.637 0.237 25.331); /* Preserved from user's existing Shadcn/UI dark values */
+  --border: oklch(0.269 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --input: oklch(0.269 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --ring: oklch(0.439 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --chart-1: oklch(0.488 0.243 264.376); /* Preserved from user's existing Shadcn/UI dark values */
+  --chart-2: oklch(0.696 0.17 162.48); /* Preserved from user's existing Shadcn/UI dark values */
+  --chart-3: oklch(0.769 0.188 70.08); /* Preserved from user's existing Shadcn/UI dark values */
+  --chart-4: oklch(0.627 0.265 303.9); /* Preserved from user's existing Shadcn/UI dark values */
+  --chart-5: oklch(0.645 0.246 16.439); /* Preserved from user's existing Shadcn/UI dark values */
+  --sidebar: oklch(0.205 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --sidebar-foreground: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --sidebar-primary: oklch(0.488 0.243 264.376); /* Preserved from user's existing Shadcn/UI dark values */
+  --sidebar-primary-foreground: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --sidebar-accent: oklch(0.269 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --sidebar-accent-foreground: oklch(0.985 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --sidebar-border: oklch(0.269 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+  --sidebar-ring: oklch(0.439 0 0); /* Preserved from user's existing Shadcn/UI dark values */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans:
+    var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+
+  /* Shadcn/UI @theme variables */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    border-color: theme(colors.border);
+  }
+  body {
+    background-color: theme(colors.background);
+    color: theme(colors.foreground);
+  }
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* body styles are now handled by @layer base, but we retain custom font and smoothing */
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv11", "ss01", "ss02";
+}
+
+::selection {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+/* ============================================
+   ANIMATIONS - SMOOTH & PREMIUM
+   ============================================ */
+
+/* Fade in up - elegant */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s var(--ease-out) both;
+}
+
+/* Fade in */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out both;
+}
+
+/* Scale in - gentle bounce */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s var(--ease-out-back) both;
+}
+
+/* Slide in from right */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in-right 0.4s var(--ease-out) both;
+}
+
+/* Slide in from left */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.4s var(--ease-out) both;
+}
+
+/* Gentle pulse */
+@keyframes pulse-gentle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 2s ease-in-out infinite;
+}
+
+/* Shimmer - for loading */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--surface-muted) 0%,
+    var(--surface) 50%,
+    var(--surface-muted) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Spin */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Float - subtle */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Staggered children */
+.stagger-children > * {
+  opacity: 0;
+  animation: fade-in-up 0.5s var(--ease-out) forwards;
+}
+
+.stagger-children > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.stagger-children > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.stagger-children > *:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.stagger-children > *:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.stagger-children > *:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.stagger-children > *:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+/* ============================================
+   GLASSMORPHISM - PREMIUM
+   ============================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow:
+    var(--shadow-md),
+    0 2px 8px -2px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    var(--shadow-lg),
+    0 4px 12px -2px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-muted);
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   CARD STYLES - PREMIUM
+   ============================================ */
+
+.card {
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base) var(--ease-out);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.card-elevated {
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-light);
+}
+
+.card-premium {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(248, 250, 252, 1) 100%
+  );
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-slow) var(--ease-out);
+}
+
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2xl), var(--shadow-glow);
+}
+
+/* ============================================
+   INPUT STYLES - REFINED
+   ============================================ */
+
+.input-base {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  transition: all var(--transition-fast) var(--ease-out);
+}
+
+.input-base:hover {
+  border-color: var(--secondary);
+}
+
+.input-base:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--shadow-focus);
+}
+
+/* ============================================
+   CHECKBOX STYLES - PREMIUM
+   ============================================ */
+
+.checkbox-premium {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all var(--transition-fast) var(--ease-out-back);
+  position: relative;
+  background: var(--surface);
+}
+
+.checkbox-premium:hover {
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.checkbox-premium:checked {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  border-color: transparent;
+  box-shadow: 0 2px 8px -2px rgba(99, 102, 241, 0.4);
+}
+
+.checkbox-premium:checked::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+
+/* ============================================
+   FOCUS STYLES - ACCESSIBLE
+   ============================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   SCROLLBAR STYLES - REFINED
+   ============================================ */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* ============================================
+   DECORATIVE BACKGROUNDS - ELEGANT
+   ============================================ */
+
+.bg-gradient-subtle {
+  background: linear-gradient(180deg, #fafbfc 0%, #f0f4ff 100%);
+}
+
+.bg-gradient-hero {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(99, 102, 241, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 100% 0%,
+      rgba(139, 92, 246, 0.05) 0%,
+      transparent 30%
+    ),
+    linear-gradient(180deg, #fafbfc 0%, #ffffff 100%);
+}
+
+.bg-mesh-subtle {
+  background:
+    radial-gradient(at 20% 0%, rgba(99, 102, 241, 0.04) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(139, 92, 246, 0.03) 0px, transparent 50%),
+    var(--background);
+}
+
+/* Floating shapes - very subtle */
+.floating-shapes {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+}
+
+.shape-1 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    rgba(139, 92, 246, 0.3)
+  );
+  top: -150px;
+  right: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 184, 166, 0.2),
+    rgba(99, 102, 241, 0.1)
+  );
+  bottom: -100px;
+  left: -100px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+/* ============================================
+   TEXT UTILITIES
+   ============================================ */
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-muted {
+  color: var(--secondary);
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-muted) 0%,
+    var(--border-light) 50%,
+    var(--surface-muted) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+/* ============================================
+   TASK CARD SPECIFIC
+   ============================================ */
+
+.task-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: all var(--transition-base) var(--ease-out);
+}
+
+.task-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.task-card-completed {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+@media (max-width: 640px) {
+  .shape {
+    opacity: 0.06;
+  }
+
+  .shape-1 {
+    width: 300px;
+    height: 300px;
+  }
+  .shape-2 {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   HOVER UTILITIES
+   ============================================ */
+
+.hover-lift {
+  transition: all var(--transition-base) var(--ease-out);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-scale {
+  transition: transform var(--transition-fast) var(--ease-out-back);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-glow:hover {
+  box-shadow: var(--shadow-glow);
+}

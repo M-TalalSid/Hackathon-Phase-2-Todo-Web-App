@@ -1,0 +1,144 @@
+.bubble {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 16px;
+  max-width: 85%;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* User messages - right aligned */
+.user {
+  margin-left: auto;
+  flex-direction: row-reverse;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+}
+
+/* Assistant messages - left aligned */
+.assistant {
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.user .avatar {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.messageText {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+/* Tool Call Badges */
+.toolCalls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.toolBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.6rem;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: help;
+  transition: all 0.2s ease;
+}
+
+.toolBadge:hover {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+.toolBadge.success {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.toolIcon {
+  font-size: 0.9rem;
+}
+
+.toolName {
+  font-weight: 500;
+}
+
+.successCheck {
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  align-self: flex-end;
+}
+
+.user .timestamp {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .bubble {
+    max-width: 90%;
+    padding: 0.6rem;
+  }
+  
+  .avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+  
+  .messageText {
+    font-size: 0.9rem;
+  }
+  
+  .toolBadge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+  }
+}
