@@ -10,34 +10,26 @@ import {
   ChatApiError,
   type ChatResponse 
 } from "@/services/chatApi";
-import styles from "./page.module.css";
 
 /**
  * Chat page component.
- * 
- * Main chat interface with authentication protection.
  */
 export default function ChatPage() {
   const router = useRouter();
   const { data: session, isPending } = useSession();
-  
-  // Chat state
+
   const [conversationId, setConversationId] = useState<number | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lastUserMessage, setLastUserMessage] = useState<string>("");
 
-  // Redirect to login if not authenticated
   useEffect(() => {
     if (!isPending && !session) {
       router.push("/signin?redirect=/chat");
     }
   }, [session, isPending, router]);
 
-  /**
-   * Send a message to the chat API.
-   */
   const handleSendMessage = useCallback(async (messageContent: string) => {
     if (!session?.user?.id) {
       setError("Please sign in to continue.");
@@ -48,7 +40,6 @@ export default function ChatPage() {
     setIsLoading(true);
     setLastUserMessage(messageContent);
 
-    // Optimistically add user message
     const userMessage: Message = {
       id: generateMessageId(),
       role: "user",
@@ -58,10 +49,7 @@ export default function ChatPage() {
     setMessages((prev) => [...prev, userMessage]);
 
     try {
-      // Get auth token
       const token = session.session?.token || "";
-      
-      // Send message to API
       const response: ChatResponse = await sendChatMessage(
         session.user.id,
         messageContent,
@@ -69,12 +57,10 @@ export default function ChatPage() {
         token
       );
 
-      // Update conversation ID if new
       if (!conversationId) {
         setConversationId(response.conversationId);
       }
 
-      // Add assistant message
       const assistantMessage: Message = {
         id: generateMessageId(),
         role: "assistant",
@@ -83,26 +69,16 @@ export default function ChatPage() {
         createdAt: new Date(),
       };
       setMessages((prev) => [...prev, assistantMessage]);
-      
+
     } catch (err) {
       console.error("Chat error:", err);
-      
-      // Remove optimistic user message on error
       setMessages((prev) => prev.filter((m) => m.id !== userMessage.id));
-      
-      if (err instanceof ChatApiError) {
-        setError(err.message);
-      } else {
-        setError("Something went wrong. Please try again.");
-      }
+      setError(err instanceof ChatApiError ? err.message : "Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
   }, [session, conversationId]);
 
-  /**
-   * Retry the last failed message.
-   */
   const handleRetry = useCallback(() => {
     if (lastUserMessage) {
       setError(null);
@@ -110,37 +86,28 @@ export default function ChatPage() {
     }
   }, [lastUserMessage, handleSendMessage]);
 
-  /**
-   * Clear the current error.
-   */
   const handleClearError = useCallback(() => {
     setError(null);
   }, []);
 
-  // Show loading state while checking auth
   if (isPending) {
     return (
-      <div className={styles.loadingContainer}>
-        <div className={styles.loadingSpinner} />
-        <p>Loading...</p>
+      <div className="flex flex-col items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <p className="mt-4 text-gray-700">Loading...</p>
       </div>
     );
   }
 
-  // Don't render if not authenticated (will redirect)
-  if (!session) {
-    return null;
-  }
+  if (!session) return null;
 
   return (
-    <main className={styles.main}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>Chat</h1>
-        <p className={styles.subtitle}>
-          Manage your tasks using natural language
-        </p>
+    <main className="max-w-3xl mx-auto p-4">
+      <header className="mb-6">
+        <h1 className="text-3xl font-bold">Chat</h1>
+        <p className="text-gray-600 mt-1">Manage your tasks using natural language</p>
       </header>
-      
+
       <ChatContainer
         conversationId={conversationId}
         messages={messages}
