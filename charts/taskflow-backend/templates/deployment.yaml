@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskflow-backend
+  labels:
+    app: taskflow-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: taskflow-backend
+  template:
+    metadata:
+      labels:
+        app: taskflow-backend
+    spec:
+      containers:
+        - name: taskflow-backend
+          image: taskflow-backend:1.0.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 7860
+          env:
+            - name: PORT
+              value: "7860"
+          envFrom:
+            - secretRef:
+                name: taskflow-backend-secrets
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 7860
+            initialDelaySeconds: 90
+            periodSeconds: 30
+            failureThreshold: 5
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 7860
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 3
