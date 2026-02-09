@@ -67,4 +67,4 @@ This project is developed as part of the GIAIC Q4 Hackathon.
 
 👨‍💻 Author
 
-*M. TALAL SHOAIB* ([@M-TalalSid]((https://github.com/M-TalalSid)))
+*M. TALAL SHOAIB*
