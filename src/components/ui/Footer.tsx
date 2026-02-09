@@ -145,7 +145,7 @@ export function Footer({ variant = "default" }: FooterProps) {
         <div className="mt-16 pt-8 border-t border-slate-800/60">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-slate-400 font-medium">
-              © {currentYear} TaskFlow. All Rights Reserved.
+              © {currentYear} TaskFlow. All Rights Reserved. Made By M. Talal Shoaib.
             </p>
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-primary to-accent animate-pulse-gentle" />
